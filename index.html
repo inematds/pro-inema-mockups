@@ -16,24 +16,24 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:var(--sans);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;
   min-height:100vh;display:flex;align-items:center;justify-content:center;padding:48px 24px;line-height:1.5}
-.box{max-width:860px;width:100%}
+.box{max-width:880px;width:100%}
 .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--accent);text-transform:uppercase}
 h1{font-size:30px;font-weight:650;letter-spacing:-.01em;margin:10px 0 6px}
-.lead{color:var(--muted);font-size:15px;max-width:60ch}
-.sec{margin-top:34px}
+.lead{color:var(--muted);font-size:15px;max-width:62ch}
+.sec{margin-top:32px}
 .sec .lbl{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin-bottom:12px}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .c{display:block;text-decoration:none;color:inherit;background:var(--panel);border:1px solid var(--border);
-  border-radius:12px;padding:20px;transition:border-color .16s,background .16s,transform .16s}
+  border-radius:12px;padding:18px;transition:border-color .16s,background .16s,transform .16s}
 .c:hover{border-color:var(--border-strong);background:var(--raised);transform:translateY(-2px)}
 .c .t{display:flex;align-items:center;gap:8px}
 .c .tag{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.04em}
 .c .badge{margin-left:auto;font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;
   color:var(--faint);border:1px solid var(--border);border-radius:6px;padding:2px 7px}
-.c h2{font-size:18px;font-weight:600;margin:9px 0 5px}
-.c p{color:var(--muted);font-size:13.5px;line-height:1.45}
-.c .go{margin-top:14px;font-size:13px;font-weight:600;color:var(--accent)}
-.foot{margin-top:34px;font-family:var(--mono);font-size:12px;color:var(--faint)}
+.c h2{font-size:17px;font-weight:600;margin:9px 0 5px}
+.c p{color:var(--muted);font-size:13px;line-height:1.45}
+.c .go{margin-top:12px;font-size:13px;font-weight:600;color:var(--accent)}
+.foot{margin-top:32px;font-family:var(--mono);font-size:12px;color:var(--faint)}
 @media(max-width:620px){.row{grid-template-columns:1fr}}
 </style>
 </head>
@@ -41,28 +41,46 @@ h1{font-size:30px;font-weight:650;letter-spacing:-.01em;margin:10px 0 6px}
 <div class="box">
   <span class="kicker">pro.inema.club · evolução do inema.club</span>
   <h1>Protótipos de layout</h1>
-  <p class="lead">Hub aberto de todos os cursos. Estrutura escolhida: <b>Dashboard Pro</b> (sidebar + grade). Abaixo, os protótipos iniciais e a direção visual refinada pela skill impeccable. Busca e filtros funcionam em todos.</p>
+  <p class="lead">Hub aberto de todos os cursos. Estrutura: <b>Dashboard Pro</b> (sidebar + grade). Seis tratamentos visuais, da mesma página. Busca e filtros funcionam em todos.</p>
 
   <div class="sec">
-    <div class="lbl">Direção refinada · impeccable (recomendado)</div>
+    <div class="lbl">Estilo Awwwards · profissional (novos)</div>
     <div class="row">
-      <a class="c" href="pro-c-ink.html">
-        <div class="t"><span class="tag">Dashboard Pro</span><span class="badge">Dark Ink</span></div>
-        <h2>Dark Ink</h2>
-        <p>Escuro sóbrio (não-navy), um acento contido, bordas hairline, sem glow. Cara de Linear/Stripe.</p>
+      <a class="c" href="pro-c-editorial.html">
+        <div class="t"><span class="tag">Dashboard Pro</span><span class="badge">Editorial</span></div>
+        <h2>Editorial</h2>
+        <p>Swiss/estúdio: serifa Fraunces, grade com fios, números de índice, acento vermelhão. Claro.</p>
         <div class="go">Abrir →</div>
       </a>
-      <a class="c" href="pro-c-light.html">
-        <div class="t"><span class="tag">Dashboard Pro</span><span class="badge">Light Studio</span></div>
-        <h2>Light Studio</h2>
-        <p>Claro editorial, papel quente, título em serifa, acento azul profissional. Máxima legibilidade.</p>
+      <a class="c" href="pro-c-atelier.html">
+        <div class="t"><span class="tag">Dashboard Pro</span><span class="badge">Atelier</span></div>
+        <h2>Atelier</h2>
+        <p>Agência luxe: Bricolage Grotesque, charcoal quente + ouro velho, ticker no topo. Escuro.</p>
         <div class="go">Abrir →</div>
       </a>
     </div>
   </div>
 
   <div class="sec">
-    <div class="lbl">Protótipos iniciais</div>
+    <div class="lbl">Refinado · impeccable</div>
+    <div class="row">
+      <a class="c" href="pro-c-ink.html">
+        <div class="t"><span class="tag">Dashboard Pro</span><span class="badge">Dark Ink</span></div>
+        <h2>Dark Ink</h2>
+        <p>Escuro sóbrio, um acento contido, bordas hairline, sem glow. Cara de Linear/Stripe.</p>
+        <div class="go">Abrir →</div>
+      </a>
+      <a class="c" href="pro-c-light.html">
+        <div class="t"><span class="tag">Dashboard Pro</span><span class="badge">Light Studio</span></div>
+        <h2>Light Studio</h2>
+        <p>Claro editorial, papel quente, título em serifa, acento azul. Máxima legibilidade.</p>
+        <div class="go">Abrir →</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="lbl">Protótipos iniciais · neon</div>
     <div class="row">
       <a class="c" href="pro-layout-c.html">
         <div class="t"><span class="tag">Layout C</span><span class="badge">Neon</span></div>
