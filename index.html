@@ -4,69 +4,82 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>pro.inema.club — Protótipos de layout</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#060914;--border:#232c4a;--border2:#2d3a63;--cyan:#00d9ff;--cyan2:#5ce6ff;
-  --purple:#a855f7;--ink:#e7edf9;--muted:#93a0bd;--faint:#62709a;
-  --grad:linear-gradient(120deg,#00d9ff 0%,#8b5cf6 100%)}
+:root{
+  --bg:oklch(0.18 0.012 255); --panel:oklch(0.215 0.012 255); --raised:oklch(0.235 0.012 255);
+  --border:oklch(0.30 0.012 255); --border-strong:oklch(0.40 0.014 255);
+  --ink:oklch(0.95 0.008 250); --muted:oklch(0.70 0.014 250); --faint:oklch(0.55 0.014 250);
+  --accent:oklch(0.74 0.11 222);
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,system-ui,sans-serif;
+  --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,monospace;
+}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;
-  display:flex;align-items:center;justify-content:center;padding:40px;-webkit-font-smoothing:antialiased}
-body::before{content:"";position:fixed;inset:0;z-index:-2;background:
-  radial-gradient(900px 600px at 15% -8%,rgba(0,217,255,.16),transparent 60%),
-  radial-gradient(800px 600px at 100% 10%,rgba(168,85,247,.14),transparent 55%),var(--bg)}
-body::after{content:"";position:fixed;inset:0;z-index:-1;opacity:.45;
-  background-image:linear-gradient(rgba(120,150,220,.04) 1px,transparent 1px),
-  linear-gradient(90deg,rgba(120,150,220,.04) 1px,transparent 1px);background-size:46px 46px;
-  mask-image:radial-gradient(ellipse 100% 70% at 50% 0%,#000 30%,transparent 80%)}
-.mono{font-family:'JetBrains Mono',monospace}
-.box{max-width:880px;width:100%;text-align:center}
-.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:'JetBrains Mono';font-size:12px;
-  letter-spacing:.2em;text-transform:uppercase;color:var(--cyan2);margin-bottom:20px}
-.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
-h1{font-size:clamp(30px,5vw,48px);font-weight:800;letter-spacing:-.02em;line-height:1.05}
-h1 b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.sub{color:var(--muted);font-size:17px;margin:16px auto 44px;max-width:54ch}
-.cards{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.c{display:block;text-decoration:none;color:inherit;text-align:left;position:relative;overflow:hidden;
-  background:linear-gradient(180deg,rgba(20,28,58,.9),rgba(13,20,48,.9));border:1px solid var(--border);
-  border-radius:20px;padding:28px;transition:.22s}
-.c::before{content:"";position:absolute;inset:0;border-radius:20px;padding:1px;background:var(--grad);
-  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:.22s}
-.c:hover{transform:translateY(-6px);border-color:transparent;box-shadow:0 22px 50px rgba(0,0,0,.5),0 0 40px rgba(0,217,255,.15)}
-.c:hover::before{opacity:1}
-.c .tag{font-family:'JetBrains Mono';font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan2)}
-.c h2{font-size:23px;font-weight:700;margin:12px 0 8px}
-.c p{color:var(--muted);font-size:14.5px;line-height:1.5}
-.c .go{margin-top:18px;font-weight:600;font-size:14px;color:var(--cyan2);display:inline-flex;gap:7px;align-items:center}
-.c:hover .go span{transform:translateX(5px)}.c .go span{transition:.2s}
-.foot{margin-top:38px;font-family:'JetBrains Mono';font-size:12px;color:var(--faint)}
-@media(max-width:640px){.cards{grid-template-columns:1fr}}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;
+  min-height:100vh;display:flex;align-items:center;justify-content:center;padding:48px 24px;line-height:1.5}
+.box{max-width:860px;width:100%}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--accent);text-transform:uppercase}
+h1{font-size:30px;font-weight:650;letter-spacing:-.01em;margin:10px 0 6px}
+.lead{color:var(--muted);font-size:15px;max-width:60ch}
+.sec{margin-top:34px}
+.sec .lbl{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin-bottom:12px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.c{display:block;text-decoration:none;color:inherit;background:var(--panel);border:1px solid var(--border);
+  border-radius:12px;padding:20px;transition:border-color .16s,background .16s,transform .16s}
+.c:hover{border-color:var(--border-strong);background:var(--raised);transform:translateY(-2px)}
+.c .t{display:flex;align-items:center;gap:8px}
+.c .tag{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.04em}
+.c .badge{margin-left:auto;font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;
+  color:var(--faint);border:1px solid var(--border);border-radius:6px;padding:2px 7px}
+.c h2{font-size:18px;font-weight:600;margin:9px 0 5px}
+.c p{color:var(--muted);font-size:13.5px;line-height:1.45}
+.c .go{margin-top:14px;font-size:13px;font-weight:600;color:var(--accent)}
+.foot{margin-top:34px;font-family:var(--mono);font-size:12px;color:var(--faint)}
+@media(max-width:620px){.row{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="box">
-  <span class="eyebrow">pro.inema.club · evolução do inema.club</span>
-  <h1>Protótipos de <b>layout</b></h1>
-  <p class="sub">Dois caminhos para o hub de cursos. Páginas reais — busca e filtros funcionam. Escolha por qual seguir.</p>
-  <div class="cards">
-    <a class="c" href="pro-layout-a.html">
-      <span class="tag">Layout A</span>
-      <h2>Catálogo focado</h2>
-      <p>Busca em primeiro lugar, trilhas como filtros, grade fluida de cursos. Cara de produto, scroll curto.</p>
-      <span class="go">Abrir A <span>→</span></span>
-    </a>
-    <a class="c" href="pro-layout-c.html">
-      <span class="tag">Layout C</span>
-      <h2>Dashboard Pro</h2>
-      <p>Sidebar fixa de trilhas + grade densa + coluna de atualizações. Cara de plataforma logada.</p>
-      <span class="go">Abrir C <span>→</span></span>
-    </a>
+  <span class="kicker">pro.inema.club · evolução do inema.club</span>
+  <h1>Protótipos de layout</h1>
+  <p class="lead">Hub aberto de todos os cursos. Estrutura escolhida: <b>Dashboard Pro</b> (sidebar + grade). Abaixo, os protótipos iniciais e a direção visual refinada pela skill impeccable. Busca e filtros funcionam em todos.</p>
+
+  <div class="sec">
+    <div class="lbl">Direção refinada · impeccable (recomendado)</div>
+    <div class="row">
+      <a class="c" href="pro-c-ink.html">
+        <div class="t"><span class="tag">Dashboard Pro</span><span class="badge">Dark Ink</span></div>
+        <h2>Dark Ink</h2>
+        <p>Escuro sóbrio (não-navy), um acento contido, bordas hairline, sem glow. Cara de Linear/Stripe.</p>
+        <div class="go">Abrir →</div>
+      </a>
+      <a class="c" href="pro-c-light.html">
+        <div class="t"><span class="tag">Dashboard Pro</span><span class="badge">Light Studio</span></div>
+        <h2>Light Studio</h2>
+        <p>Claro editorial, papel quente, título em serifa, acento azul profissional. Máxima legibilidade.</p>
+        <div class="go">Abrir →</div>
+      </a>
+    </div>
   </div>
-  <p class="foot">INEMA · protótipo interno · navy + ciano + roxo</p>
+
+  <div class="sec">
+    <div class="lbl">Protótipos iniciais</div>
+    <div class="row">
+      <a class="c" href="pro-layout-c.html">
+        <div class="t"><span class="tag">Layout C</span><span class="badge">Neon</span></div>
+        <h2>Dashboard Pro · Neon</h2>
+        <p>Mesma estrutura, identidade neon (navy/ciano/roxo, glow, grid). Versão original.</p>
+        <div class="go">Abrir →</div>
+      </a>
+      <a class="c" href="pro-layout-a.html">
+        <div class="t"><span class="tag">Layout A</span><span class="badge">Neon</span></div>
+        <h2>Catálogo focado · Neon</h2>
+        <p>Busca em primeiro lugar, grade fluida. Direção de layout não escolhida.</p>
+        <div class="go">Abrir →</div>
+      </a>
+    </div>
+  </div>
+
+  <p class="foot">INEMA · protótipo interno</p>
 </div>
 </body>
 </html>
